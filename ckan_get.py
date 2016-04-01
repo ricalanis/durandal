@@ -136,13 +136,13 @@ def get_csv_values(url):
     if failed_download == 0:
         csv_file = None
         try:
-            csv_file = pandas.DataFrame.from_csv("local.csv")
+            csv_file = pd.DataFrame.from_csv("local.csv")
         except:
             try:
-                csv_file = pandas.DataFrame.from_csv("local.csv",encoding="latin_1")
+                csv_file = pd.DataFrame.from_csv("local.csv",encoding="latin_1")
             except:
                 try:
-                    csv_file = pandas.DataFrame.from_csv("local.csv",encoding="ascii")
+                    csv_file = pd.DataFrame.from_csv("local.csv",encoding="ascii")
                 except:
                     fields_string = "N/A"
         if fields_string != "" and csv_file is not None:
@@ -171,6 +171,8 @@ def main():
             for resources in get_dataset_data(datasets):
                 dataset_data.append(resources)
     print_csv_output(dataset_data)
+    print("Finished")
+    return None
 
 if __name__ == "__main__":
     main()
